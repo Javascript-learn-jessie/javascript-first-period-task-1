@@ -9,10 +9,10 @@ function get_letter(num) {
     var first_letter;
     var second_letter;
     if (mod) {
-      first_letter = String.fromCharCode(97 + num / 26 - 1);
-      second_letter = String.fromCharCode(97 + num % 26 - 1);
+      first_letter = String.fromCharCode(96 + num / 26);
+      second_letter = String.fromCharCode(96 + num % 26);
     } else {
-      first_letter = String.fromCharCode(97 + num / 26 - 2);
+      first_letter = String.fromCharCode(96 + num / 26);
       second_letter = 'z';
     }
     letter = first_letter + second_letter;
@@ -27,17 +27,18 @@ function get_letter_interval_2(number_a, number_b) {
   if (number_a < number_b) {
     for (var i = number_a; i <= number_b; i++) {
       if (i / 26 == 0) {
-        letter = String.fromCharCode(97 + i - 1);
+        letter = String.fromCharCode(96 + i);
         //console.log(letter);
+        return letter;
       } else {
         var mod = i % 26;
         var first_letter;
         var second_letter;
         if (mod) {
-          first_letter = String.fromCharCode(97 + i / 26 - 1);
-          second_letter = String.fromCharCode(97 + i % 26 - 1);
+          first_letter = String.fromCharCode(96 + i / 26);
+          second_letter = String.fromCharCode(96 + i % 26);
         } else {
-          first_letter = String.fromCharCode(97 + i / 26 - 2);
+          first_letter = String.fromCharCode(96 + i / 26 -1);
           second_letter = 'z';
         }
         letter = first_letter + second_letter;

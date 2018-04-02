@@ -8,7 +8,7 @@ function double_to_one(collection) {
   for (var i = 0; i < collection.length; i++) {
     if (collection[i].length) {
       for (var j = 0; j < collection[i].length; j++) {
-        if (book[collection[i][j]] != undefined) {
+        if (book[collection[i][j]] == undefined) {
           result.push(collection[i][j]);
           book[collection[i][j]]=1;
         }
