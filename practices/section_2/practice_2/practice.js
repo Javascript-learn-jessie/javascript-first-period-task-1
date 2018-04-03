@@ -4,23 +4,34 @@ function count_same_elements(collection) {
   var count = 1, key, value;
   key = collection[0];
   for (var i = 1; i < collection.length; i++) {
-    if (collection[i].match('-') == null) {
+      if (key.match('-') != null) {
+          var strArray = key.split('-');
+          key = strArray[0];
+          value = parseInt(strArray[1]);
+          result.push({ "key": key, "count": value });
+          key = collection[i];
+          count=1;
+          continue;
+      }
       if (collection[i] == key) {
-        count++;
-        continue;
+          count++;
+          continue;
       }
       value = count;
       count = 1;
       result.push({ "key": key, "count": value });
       key = collection[i];
-      //最后一类没有在循环中添加到结果中
-    } else {
-      var strArray = collection[i].split('-');
+  }
+  //最后剩下的特殊形式计数，如d-5
+  if (key.match('-')) {
+      var strArray = key.split('-');
       key = strArray[0];
-      value = strArray[1];
+      value = parseInt(strArray[1]);
       result.push({ "key": key, "count": value });
-      key = collection[i];
-    }
+  }else{
+    value = count;
+    count = 1;
+    result.push({ "key": key, "count": value });
   }
   return result;
 }

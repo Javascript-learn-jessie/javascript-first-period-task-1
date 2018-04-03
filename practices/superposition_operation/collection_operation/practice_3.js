@@ -6,9 +6,7 @@ function hybrid_operation_to_uneven(collection) {
   var sum = 0;
   for (var i = 0; i < collection.length; i++) {
     if (collection[i] % 2)
-      sum += collection[i] * 3 + 5;
-    else
-      sum += collection[i];
+      sum += collection[i] * 3 +5;
   }
   return sum;
 }
